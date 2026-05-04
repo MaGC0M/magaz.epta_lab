@@ -1,0 +1,85 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+
+{% block title %}Магаз.епта - Контакты{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Контакты</h1>
+
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h2>Наши контакты</h2>
+                <p><i class="fas fa-map-marker-alt"></i> Клин, ул. Карла Маркса, д.8</p>
+                <p><i class="fas fa-phone"></i> <a href="tel:+78005553535">+7 800 555-35-35</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:info@magaz-epta.ru">info@magaz-epta.ru</a></p>
+
+                <h3>Режим работы</h3>
+                <p>Пн–Пт: 10:00 – 20:00</p>
+                <p>Сб: 11:00 – 18:00</p>
+                <p>Вс: выходной</p>
+
+                <h3>Мы в соцсетях</h3>
+                <div class="social-links">
+                    <a href="#" target="_blank"><i class="fab fa-vk"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-telegram"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h2>Напишите нам</h2>
+                <form
+                        id="feedback-form"
+                        data-submit-url="{% url 'feedback' %}"
+                        data-list-url="{% url 'feedback_list' %}"
+                >
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <input id="feedback-name" type="text" name="name" placeholder="Ваше имя" required
+                               value="{{ user_name|default:'' }}">
+                    </div>
+                    <div class="form-group">
+                        <input id="feedback-email" type="email" name="email" placeholder="Ваш email" required
+                               value="{{ user_email|default:'' }}">
+                    </div>
+                    <div class="form-group">
+                        <textarea id="feedback-message" name="message" placeholder="Ваше сообщение" rows="5"
+                                  required></textarea>
+                    </div>
+                    <button type="submit" class="btn submit-btn">Отправить сообщение</button>
+                </form>
+
+                <div id="feedback-status" class="info-note" style="display: none;"></div>
+
+                {% if user.is_authenticated %}
+                    <p class="info-note"><i class="fas fa-info-circle"></i> Ваши данные автоматически подставлены из
+                        профиля</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="contact-messages-block">
+            <h2>Последние сообщения</h2>
+            <div id="feedback-list" class="feedbacks-list">
+                {% for feedback in recent_feedbacks %}
+                    <div class="feedback-item">
+                        <div class="feedback-header">
+                            <strong>{{ feedback.name }}</strong>
+                            <span class="feedback-date">{{ feedback.created_at }}</span>
+                        </div>
+                        <p class="feedback-message">{{ feedback.message }}</p>
+                    </div>
+                {% empty %}
+                    <p class="no-feedbacks">Пока сообщений нет.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}{% endblock %}
+{% block extra_js %}
+<script src="{% static 'shop/js/contact.js' %}"></script>
+{% endblock %}

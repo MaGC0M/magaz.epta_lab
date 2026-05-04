@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Магаз.епта{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">Магаз.епта</a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="/"><i class="fas fa-home"></i> Главная</a></li>
+                <li><a href="/products/"><i class="fas fa-laptop"></i> Товары</a></li>
+                <li><a href="/about/"><i class="fas fa-info-circle"></i> О нас</a></li>
+                <li><a href="/contact/"><i class="fas fa-envelope"></i> Контакты</a></li>
+            </ul>
+            <div class="nav-right">
+                {% if user.is_authenticated %}
+                    <div class="user-menu">
+                        <span><i class="fas fa-user"></i> {{ user.first_name|default:user.username }}</span>
+                        <a href="{% url 'profile' %}"><i class="fas fa-id-card"></i> Кабинет</a>
+                        <a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Выход</a>
+                    </div>
+                {% else %}
+                    <div class="auth-links">
+                        <a href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Вход</a>
+                        <a href="{% url 'register' %}"><i class="fas fa-user-plus"></i> Регистрация</a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    {% if messages %}
+    <div class="container messages-container">
+        {% for message in messages %}
+        <div class="message {{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    {% block footer %}
+    <div class="footer">
+        © 2026 Магаз.епта. Все права защищены.
+        Телефон: +7 800 555-35-35
+    </div>
+    {% endblock %}
+
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,28 @@
+services:
+  web:
+    build: .
+    container_name: web
+    ports:
+      - "8000:8000"
+    environment:
+      DEBUG: "True"
+      SECRET_KEY: "secret-key"
+      ALLOWED_HOSTS: "*"
+      FEEDBACK_SERVICE_URL: "http://feedback-service:5000"
+    depends_on:
+      - feedback-service
+
+  feedback-service:
+    build: ./feedback_service
+    container_name: feedback-service
+    ports:
+      - "5001:5000"
+    environment:
+      FEEDBACK_DB_PATH: "/data/feedback.sqlite3"
+      TELEGRAM_BOT_TOKEN: ""
+      TELEGRAM_CHAT_ID: ""
+    volumes:
+      - feedback_data:/data
+
+volumes:
+  feedback_data:

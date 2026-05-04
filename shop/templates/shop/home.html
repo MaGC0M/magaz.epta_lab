@@ -1,0 +1,147 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+
+{% block title %}Магаз.епта - Главная{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <div class="container">
+        <h1>Добро пожаловать в Магаз.епта!</h1>
+        <p class="hero-subtitle">Лучшая электроника по доступным ценам</p>
+        <a href="/products/" class="btn btn-large">Смотреть товары</a>
+    </div>
+</div>
+
+<div class="container">
+    <h2 class="section-title">Популярные категории</h2>
+    <div class="categories">
+        <div class="category-card">
+            <img src="{% static 'laptop.jpg' %}" alt="Ноутбуки">
+            <h3>Ноутбуки</h3>
+            <p>Широкий выбор <strong>игровых</strong> и <em>рабочих</em> ноутбуков</p>
+            <a href="/products/#laptops" class="btn-small">Подробнее</a>
+        </div>
+        <div class="category-card">
+            <img src="{% static 'smartphone.jpg' %}" alt="Смартфоны">
+            <h3>Смартфоны</h3>
+            <p>Новейшие модели 2026 года с мощными камерами</p>
+            <a href="/products/#phones" class="btn-small">Подробнее</a>
+        </div>
+        <div class="category-card">
+            <img src="{% static 'accessories.jpg' %}" alt="Аксессуары">
+            <h3>Аксессуары</h3>
+            <p>Наушники, чехлы, зарядные устройства и многое другое</p>
+            <a href="/products/#accessories" class="btn-small">Подробнее</a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h2 class="section-title">Почему выбирают нас</h2>
+    <div class="features-grid">
+        <div class="feature-card">
+            <i class="fas fa-truck feature-icon"></i>
+            <h3>Бесплатная доставка</h3>
+            <p>При заказе от 10 000₽ доставим бесплатно в любой город</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-shield-alt feature-icon"></i>
+            <h3>Гарантия 2 года</h3>
+            <p>На всю технику предоставляем расширенную гарантию</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-credit-card feature-icon"></i>
+            <h3>Рассрочка 0%</h3>
+            <p>Платите частями без переплат</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-star feature-icon"></i>
+            <h3>Скидки постоянным</h3>
+            <p>Накопительная система скидок до 15%</p>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h2 class="section-title">Популярные товары</h2>
+    <div class="products-grid">
+        <div class="product-card">
+            <img src="{% static 'gaming_pro.png ' %}" alt="Ноутбук Gaming Pro">
+            <h3>Ноутбук Gaming Pro</h3>
+            <p>RTX 4060, 16GB RAM, 512GB SSD</p>
+            <p class="price">89 999₽</p>
+            <a href="#" class="btn">Купить</a>
+        </div>
+        <div class="product-card">
+            <img src="{% static 'x_10.jpeg' %}" alt="Смартфон X10">
+            <h3>Смартфон X10</h3>
+            <p>6.7" AMOLED, 128GB, камера 50MP</p>
+            <p class="price">49 999₽</p>
+            <a href="#" class="btn">Купить</a>
+        </div>
+        <div class="product-card">
+            <img src="{% static 'soundpro.jpg' %}" alt="Наушники">
+            <h3>Наушники SoundPro</h3>
+            <p>Беспроводные, шумоподавление</p>
+            <p class="price">5 999₽</p>
+            <a href="#" class="btn">Купить</a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h2 class="section-title">Что говорят клиенты</h2>
+    <div class="testimonials-grid">
+        <div class="testimonial-card">
+            <i class="fas fa-quote-left quote-icon"></i>
+            <p>Отличный магазин! Быстрая доставка, вежливые консультанты. Ноутбук работает как часы.</p>
+            <div class="testimonial-author">
+                <strong>Владимир Огурцов</strong>
+                <span>г. Москва</span>
+            </div>
+        </div>
+        <div class="testimonial-card">
+            <i class="fas fa-quote-left quote-icon"></i>
+            <p>Заказывал смартфон — пришёл за 2 дня. Цены ниже, чем у конкурентов. Рекомендую!</p>
+            <div class="testimonial-author">
+                <strong>Валерия Смирнова</strong>
+                <span>г. Санкт-Петербург</span>
+            </div>
+        </div>
+        <div class="testimonial-card">
+            <i class="fas fa-quote-left quote-icon"></i>
+            <p>Постоянно покупаю аксессуары здесь. Большой выбор и приятные скидки.</p>
+            <div class="testimonial-author">
+                <strong>Иван Агапов</strong>
+                <span>г. Казань</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h2 class="section-title">Способы оплаты</h2>
+    <div class="payment-methods">
+        <div class="payment-item">
+            <i class="fas fa-money-bill-wave"></i>
+            <span>Наличные</span>
+        </div>
+        <div class="payment-item">
+            <i class="fab fa-cc-visa"></i>
+            <span>Visa / MasterCard</span>
+        </div>
+        <div class="payment-item">
+            <i class="fas fa-mobile-alt"></i>
+            <span>Онлайн перевод</span>
+        </div>
+        <div class="payment-item">
+            <i class="fas fa-calendar-alt"></i>
+            <span>Рассрочка</span>
+        </div>
+    </div>
+</div>
+
+<div class="container flex-center" style="margin: 40px 0;">
+    <a href="#" class="btn">Наверх ↑</a>
+</div>
+{% endblock %}

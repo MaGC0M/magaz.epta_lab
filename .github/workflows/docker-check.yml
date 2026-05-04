@@ -1,0 +1,38 @@
+name: Docker check
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+
+jobs:
+  docker-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Скачать код
+        uses: actions/checkout@v4
+
+      - name: Собрать контейнеры
+        run: docker compose build
+
+      - name: Запустить проект
+        run: docker compose up -d
+
+      - name: Подождать запуск
+        run: sleep 10
+
+      - name: Проверить Django-сайт
+        run: curl -f http://localhost:8000/
+
+      - name: Проверить микросервис
+        run: curl -f http://localhost:5001/health
+
+      - name: Показать контейнеры
+        run: docker compose ps
+
+      - name: Остановить контейнеры
+        if: always()
+        run: docker compose down

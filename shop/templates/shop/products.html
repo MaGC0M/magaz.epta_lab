@@ -1,0 +1,103 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+
+{% block title %}Магаз.епта - Товары{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Наши товары</h1>
+
+    <div class="page-nav">
+        <a href="#laptops">Ноутбуки</a>
+        <a href="#phones">Смартфоны</a>
+        <a href="#accessories">Аксессуары</a>
+    </div>
+
+    <hr>
+
+    <section id="laptops">
+        <h2>Ноутбуки</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <h3>Ноутбук Gaming Pro</h3>
+                <p>Мощный игровой ноутбук с видеокартой RTX 4060 и 16 ГБ ОЗУ.</p>
+                <p class="price"><strong>Цена:</strong> <span class="old-price">109 999₽</span> <span class="discount">89 999₽</span></p>
+                <p class="availability"><em>В наличии</em></p>
+                <button class="btn">Купить</button>
+            </div>
+            <div class="product-card">
+                <h3>Ноутбук Ultra Slim</h3>
+                <p>Тонкий и лёгкий ультрабук для работы и учёбы. Вес 1.2 кг.</p>
+                <p class="price"><strong>Цена:</strong> 69 999₽</p>
+                <p class="availability"><em>В наличии</em></p>
+                <button class="btn">Купить</button>
+            </div>
+            <div class="product-card">
+                <h3>Ноутбук Workstation</h3>
+                <p>Профессиональная рабочая станция для 3D-моделирования и рендеринга.</p>
+                <p class="price"><strong>Цена:</strong> <span class="old-price">149 999₽</span> <span class="discount">129 999₽</span></p>
+                <p class="availability"><em>Под заказ</em></p>
+                <button class="btn">Купить</button>
+            </div>
+        </div>
+    </section>
+
+    <br>
+
+    <section id="phones">
+        <h2>Смартфоны</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <h3>Смартфон X10</h3>
+                <p>6.7" AMOLED, 128 ГБ, тройная камера 50 МП.</p>
+                <p class="price"><strong>Цена:</strong> 49 999₽</p>
+                <p class="availability"><em>В наличии</em></p>
+                <button class="btn">Купить</button>
+            </div>
+            <div class="product-card">
+                <h3>Смартфон Pro Max</h3>
+                <p>Флагманская модель с лучшей камерой и процессором.</p>
+                <p class="price"><strong>Цена:</strong> <span class="old-price">89 999₽</span> <span class="discount">79 999₽</span></p>
+                <p class="availability"><em>В наличии</em></p>
+                <button class="btn">Купить</button>
+            </div>
+            <div class="product-card">
+                <h3>Смартфон Lite</h3>
+                <p>Отличный бюджетный вариант для повседневных задач.</p>
+                <p class="price"><strong>Цена:</strong> 24 999₽</p>
+                <p class="availability"><em>В наличии</em></p>
+                <button class="btn">Купить</button>
+            </div>
+        </div>
+    </section>
+
+    <br>
+
+    <section id="accessories">
+        <h2>Аксессуары</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <h3>Беспроводные наушники</h3>
+                <p>Шумоподавление, 20 часов работы, зарядка USB-C.</p>
+                <p class="price"><strong>Цена:</strong> 5 999₽</p>
+                <p class="availability"><em>В наличии</em></p>
+                <button class="btn">Купить</button>
+            </div>
+            <div class="product-card">
+                <h3>Защитный чехол</h3>
+                <p>Силиконовый чехол для большинства моделей смартфонов.</p>
+                <p class="price"><strong>Цена:</strong> 1 299₽</p>
+                <p class="availability"><em>В наличии</em></p>
+                <button class="btn">Купить</button>
+            </div>
+            <div class="product-card">
+                <h3>Быстрая зарядка 65W</h3>
+                <p>Зарядное устройство с поддержкой Power Delivery и QC 3.0.</p>
+                <p class="price"><strong>Цена:</strong> <span class="old-price">3 999₽</span> <span class="discount">2 999₽</span></p>
+                <p class="availability"><em>В наличии</em></p>
+                <button class="btn">Купить</button>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
